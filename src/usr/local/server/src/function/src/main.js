@@ -1,4 +1,4 @@
-const appwrite = require("node-appwrite")
+import { Databases } from "node-appwrite";
 // This is your Appwrite function
 // It's executed each time we get a request
 export default async ({ req, res, log, error }) => {
@@ -10,7 +10,7 @@ export default async ({ req, res, log, error }) => {
 
 
   if (req.method === 'GET') {
-    const database = appwrite.Databases(appwriteClient);
+    const database = Databases(appwriteClient);
     log(database.listDocuments('database','collection'));
     return(database.listDocuments);
   }
