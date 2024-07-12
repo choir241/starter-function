@@ -2,6 +2,8 @@
 // It's executed each time we get a request
 export default async ({ req, res, log, error }) => {
 
+  log(error);
+
   if (req.method === 'POST') {
     log(req.bodyJson);
     log(req.bodyText)
