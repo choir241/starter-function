@@ -9,6 +9,8 @@ export default async ({ req, res, log, error }) => {
   //    .setKey(process.env.APPWRITE_API_KEY);
 
   log(res.text("test"));
+  log('another test');
+  res.text('one more test');
   return res.text("test");
   // The `req` object contains the request data
   if (req.method === 'GET') {
