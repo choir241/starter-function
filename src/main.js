@@ -15,9 +15,9 @@ export default async ({ req, res, log, error }) => {
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
     const headers = ''
-    log(res.text({ success: false }, 404, headers));
-    res.text({ success: false }, 404, headers);
-    return res.text({ success: false }, 404, headers)
+    log(res.text('{ success: false }', 404, headers));
+    res.text('{ success: false }', 404, headers);
+    return res.text('{ success: false }', 404, headers)
   }
 
   // `res.json()` is a handy helper for sending JSON
