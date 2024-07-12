@@ -11,7 +11,7 @@ export default async ({ req, res, log, error }) => {
 
 
   if (req.method === 'GET') {
-    const database = Databases(appwriteClient);
+    const database = new Databases(appwriteClient);
     log(database.listDocuments('database','collection'));
     return(database.listDocuments);
   }
