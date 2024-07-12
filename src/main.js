@@ -12,8 +12,10 @@ export default async ({ req, res, log, error }) => {
 
   if (req.method === 'GET') {
     const database = new Databases(appwriteClient);
-    log(database.listDocuments('database','collection'));
-    return(database.listDocuments);
+    const documents = await database.listDocuments('database','collection');
+
+    log(documents.documents);
+    return database.listDocuments;
   }
 
 };
