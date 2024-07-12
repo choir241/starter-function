@@ -8,6 +8,9 @@ export default async ({ req, res, log, error }) => {
     //    .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
     //    .setKey(process.env.APPWRITE_API_KEY)
   
+    log('test')
+    return res.text('Hello, World!');
+    
     // The `req` object contains the request data
     if (req.method === 'GET') {
       // Send a response with the res object helpers
