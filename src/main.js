@@ -3,10 +3,11 @@ import { Databases, Client } from "node-appwrite";
 // It's executed each time we get a request
 export default async ({ req, res, log, error }) => {
 
- appwriteClient = new Client()
-	appwriteClient.SetEndpoint(os.Getenv("https://v16.appwrite.org/v1"))
-	appwriteClient.SetProject(os.Getenv("APPWRITE_FUNCTION_PROJECT_ID"))
-	appwriteClient.SetKey(Context.Req.Headers["x-appwrite-key"])
+ const appwriteClient = new Client()
+  .SetEndpoint(os.Getenv("https://v16.appwrite.org/v1"))
+  .SetProject(os.Getenv("APPWRITE_FUNCTION_PROJECT_ID"))
+  .SetKey(Context.Req.Headers["x-appwrite-key"])
+;
 
 
   if (req.method === 'GET') {
