@@ -14,9 +14,9 @@ export default async ({ req, res, log, error }) => {
     if (req.method === 'GET') {
       // Send a response with the res object helpers
       // `res.send()` dispatches a string back to the client
-      log(res.text("test"));
-      res.text('one more test');
-      return res.text('this is a test')
+      log(res.text({ success: false }, 404, headers));
+      res.text({ success: false }, 404, headers);
+      return res.text({ success: false }, 404, headers)
     }
   
     // `res.json()` is a handy helper for sending JSON
