@@ -5,7 +5,7 @@ export default async ({ req, res, log, error }) => {
   if (req.method === 'POST') {
     log(req.bodyJson);
     log(req.bodyText)
-    // return req.bodyText;
+    return req.bodyText;
   }
 
 };
