@@ -6,17 +6,17 @@ export default async ({ req, res, log, error }) => {
   // const client = new Client()
   //    .setEndpoint('https://cloud.appwrite.io/v1')
   //    .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
-  //    .setKey(process.env.APPWRITE_API_KEY)
+  //    .setKey(process.env.APPWRITE_API_KEY);
 
-  log('test')
-  return res.text('Hello, World!');
-  
+
+  // return res.text("test");
   // The `req` object contains the request data
   if (req.method === 'GET') {
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
-    log('test')
-    return res.text('Hello, World!');
+    log(res.text("test"));
+    res.text('one more test');
+    return res.text('this is a test')
   }
 
   // `res.json()` is a handy helper for sending JSON
