@@ -4,9 +4,9 @@ import { Databases, Client } from "node-appwrite";
 export default async ({ req, res, log, error }) => {
 
  const appwriteClient = new Client()
-  .SetEndpoint(os.Getenv("https://v16.appwrite.org/v1"))
-  .SetProject(os.Getenv("APPWRITE_FUNCTION_PROJECT_ID"))
-  .SetKey(Context.Req.Headers["x-appwrite-key"])
+  .SetEndpoint("https://v16.appwrite.org/v1")
+  .SetProject("APPWRITE_FUNCTION_PROJECT_ID")
+  .SetKey(req.headers["x-appwrite-key"])
 ;
 
 
