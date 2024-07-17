@@ -11,6 +11,7 @@ export default async ({ req, res, log, error }) => {
     const user = await users.create(ID.unique(), 'matej@appwrite.io');
     log(res.text(user.$id))
     log(req.bodyJson);
-    log(req.bodyText)
+    log(req.bodyText);
+    return res.text(user.$id);
   }
 };
