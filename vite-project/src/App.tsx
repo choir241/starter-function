@@ -33,11 +33,14 @@ function App() {
     <main>
       <h1>Test</h1>
       <form action="">
-        <input type="text" onChange={(e)=>setName(e.target.value)} />
-        <input type="email" onChange={(e)=>setEmail(e.target.value)} />
-        <input type="password" onChange={(e)=>setPassword(e.target.value)} />
+        <input placeholder="name" type="text" onChange={(e)=>setName(e.target.value)} />
+        <input placeholder="email" type="email" onChange={(e)=>setEmail(e.target.value)} />
+        <input placeholder="password" type="password" onChange={(e)=>setPassword(e.target.value)} />
 
-        <button onClick={()=>registerUser()}>Login</button>
+        <button onClick={(e)=>{
+          e.preventDefault();
+          registerUser()
+          }}>Login</button>
 
       </form>
     </main>
