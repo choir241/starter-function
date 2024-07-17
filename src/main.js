@@ -2,7 +2,7 @@ import { Users, Client, ID } from 'node-appwrite';
 // This is your Appwrite function
 // It's executed each time we get a request
 export default async ({ req, res, log, error }) => {
-  if (req.method === 'GET') {
+  if (req.method === 'POST') {
     const client = new Client()
       .setEndpoint('https://v16.appwrite.org/v1')
       .setProject('668840fe0017793b93a6')
