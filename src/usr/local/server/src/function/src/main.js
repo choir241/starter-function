@@ -9,6 +9,9 @@ export default async ({ req, res, log, error }) => {
       .setKey(req.headers['x-appwrite-key']);
     const users = new Users(client);
     const user = await users.create(ID.unique(), 'matej@appwrite.io');
-    return res.send(user.$id);
+    log(res.text(user.$id))
+    log(req.bodyText)
+    log(req.bodyJson)
+    return res.text(user.$id);
   }
 };
