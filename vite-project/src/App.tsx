@@ -1,27 +1,25 @@
 import './App.css'
-import { useState } from 'react'
-import { Account, Client, ID } from "appwrite"
+import { Client, Functions, ExecutionMethod, ID } from "appwrite";
 
 function App() {
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  async function registerUser(){
+  async function triggerFunction(){
     try{
       const client = new Client()
-        .setEndpoint("https://v16.appwrite.org/v1")
-        .setProject("668840fe0017793b93a6");
-
-      const user = new Account(client);
-
-      await user.create(
-        ID.unique(),
-        email,
-        password,
-        name
+        .setEndpoint('https://v16.appwrite.org/v1')
+        .setProject("668840fe0017793b93a6")
+      
+      const functions = new Functions(client);
+      
+      const response = await functions.createExecution(
+          '66912d430026c8ba69e4', // functionId
+          "testName",
+          false, // async (optional)
+          ExecutionMethod.GET, // method (optional)
       );
+      
+      console.log(response);
+      
 
     }catch(err){
       console.error(err);
@@ -33,14 +31,10 @@ function App() {
     <main>
       <h1>Test</h1>
       <form action="">
-        <input placeholder="name" type="text" onChange={(e)=>setName(e.target.value)} />
-        <input placeholder="email" type="email" onChange={(e)=>setEmail(e.target.value)} />
-        <input placeholder="password" type="password" onChange={(e)=>setPassword(e.target.value)} />
-
         <button onClick={(e)=>{
           e.preventDefault();
-          registerUser()
-          }}>Login</button>
+          triggerFunction()
+          }}>Test</button>
 
       </form>
     </main>

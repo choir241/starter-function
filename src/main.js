@@ -8,7 +8,7 @@ export default async ({ req, res, log, error }) => {
       .setProject('668840fe0017793b93a6')
       .setKey(req.headers['x-appwrite-key']);
     const users = new Users(client);
-    const user = await users.create(ID.unique(), req.bodyJson.email, req.bodyJson.password, req.bodyJson.name);
+    const user = await users.create(ID.unique(), 'test@email.com', 'testPassword', 'testName');
     log(res.text(user.$id));
     log(req.bodyJson);
     log(req.bodyText);
