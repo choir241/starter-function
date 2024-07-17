@@ -10,8 +10,7 @@ export default async ({ req, res, log, error }) => {
     const users = new Users(client);
     const user = await users.create(ID.unique(), 'matej@appwrite.io');
     log(res.text(user.$id))
+    log(req.bodyJson);
     log(req.bodyText)
-    log(req.bodyJson)
-    return res.text(user.$id);
   }
 };
