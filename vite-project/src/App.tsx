@@ -1,5 +1,5 @@
 import './App.css'
-import { Client, Functions, ExecutionMethod, ID } from "appwrite";
+import { Client, Functions, ExecutionMethod } from "appwrite";
 
 function App() {
 
@@ -10,17 +10,22 @@ function App() {
         .setProject("668840fe0017793b93a6")
       
       const functions = new Functions(client);
-      
-      const response = await functions.createExecution(
+          
+      const promise = functions.createExecution(
           '66912d430026c8ba69e4', // functionId
-          "testName",
+          '{email: "melusine@email", name: "melusine"}', // body (optional)
           false, // async (optional)
+          '', // path (optional)
           ExecutionMethod.GET, // method (optional)
+          {} // headers (optional)
       );
-      
-      console.log(response);
-      
 
+      promise.then(function (response) {
+        console.log(response); // Success
+    }, function (error) {
+        console.log(error); // Failure
+    });
+      
     }catch(err){
       console.error(err);
       throw new Error(`${err}`);
