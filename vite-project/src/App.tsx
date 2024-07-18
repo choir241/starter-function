@@ -12,10 +12,10 @@ function App() {
       const functions = new Functions(client);
           
       const promise = functions.createExecution(
-          '66912d430026c8ba69e4', // functionId
+          '66991a2e002aa11a51de', // functionId
           '{email: "melusine@email", name: "melusine"}', // body (optional)
           false, // async (optional)
-          '', // path (optional)
+          'POST', // path (optional)
           ExecutionMethod.GET, // method (optional)
           {} // headers (optional)
       );
